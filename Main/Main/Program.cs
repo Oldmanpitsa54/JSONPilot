@@ -15,32 +15,27 @@ namespace Main
         {
 
 
-            var pitsa = new Pitsa("Pepperoni", 33.5);
-            string jsonsered = Serialize(pitsa);
-            Console.WriteLine(jsonsered);
+            var pitsa = new Pitsa("Pepperoni", 33.5, 2);
+
 
             Console.ReadKey();
 
-            var fuckUpPitsa = new Pitsa("Margarita", 50);
-            string failedJsonsered = Serialize(fuckUpPitsa);
-        }
+            var burrito = new Burrito("Mexican Hell", 50, true);
 
-        public static string Serialize(Pitsa obj)
-        {
+            Serialization.Serialize(pitsa, "pitsa.json");
 
-            Type type = typeof(Pitsa);
-            object[] attrs = type.GetCustomAttributes(false);
-            foreach (PitsaValidationAttribute attr in attrs)
+           
+
+            try
             {
-                if (obj.Radius <= attr.Radius)
-                {
-                    return JsonSerializer.Serialize(obj);
-
-                }
-                throw new CustomInvalidToAttributeException("Pitsa can not be more than 40 cm in radius", obj.Radius);
-
+                Serialization.Serialize(burrito, "burrito.json");
             }
-            return null;
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
+
+
     }
 }

@@ -69,9 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomInvalidToAttributeException.cs" />
-    <Compile Include="Pitsa.cs" />
-    <Compile Include="PitsaValidationAttribute.cs" />
+    <Compile Include="NoAvailablePropertiesException.cs" />
+    <Compile Include="Food.cs" />
+    <Compile Include="Serialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
